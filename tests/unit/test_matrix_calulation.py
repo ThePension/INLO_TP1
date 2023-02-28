@@ -50,12 +50,21 @@ class TestMatrixCalculation:
 
     def test_add(self, identity_matrix_3x3, ones_3x3):
         """Tests add function"""
-        assert False
+        added_matrix = add(identity_matrix_3x3, ones_3x3)
+
+        print(added_matrix)
+
+        assert (added_matrix == [[2, 1, 1], [1, 2, 1], [1, 1, 2]]).all()
 
     def test_matmul(self, identity_matrix_3x3):
         """Tests  matmul function"""
-        assert False
+        mult_matrix = mat_mul(identity_matrix_3x3, identity_matrix_3x3)
+
+        assert (mult_matrix == [[1, 0, 0], [0, 1, 0], [0, 0, 1]]).all()
 
     def test_identity(self, identity_matrix_3x3):
         """Tests identity function"""
-        assert False
+
+        identity_matrix = identity(3)
+
+        assert (identity_matrix == identity_matrix_3x3).all()

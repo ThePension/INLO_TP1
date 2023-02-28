@@ -14,10 +14,15 @@ def get_student():
             {"courseId": 0, "courseName": "Math", "mark": 6.0},
             {"courseId": 0, "courseName": "Math", "mark": 3.8},
             {"courseId": 1, "courseName": "Physics", "mark": 5.1},
+            {"courseId": 1, "courseName": "Physics", "mark": 4.5},
         ],
     }
 
 
 def test_regression_student(data_regression):
     """Checks that get_student methods returns the same object structure"""
-    assert False
+    data_regression.check(get_student())
+
+    # If the test fails because the new data is correct
+    # pytest --force-regen
+    # Source : https://pytest-regressions.readthedocs.io/en/latest/overview.html

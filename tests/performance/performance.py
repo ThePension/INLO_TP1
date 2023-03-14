@@ -16,15 +16,24 @@ def array_filling_2():
     print("Array created successfully")
 
 
-# TODO: Implémenter la méthode main.
-# - Démarrer le profilage de CProfile
-# - Appeler les 2 méthodes array_filling_<n>
-# - Stopper le profilage
-# - Utiliser pstats pour trier le profilage suivant la colonne 'ncalls'
-# - Afficher les résultats dans la console.
 def main():
     """Main function"""
-    pass
+    # Démarrer le profilage de CProfile
+    profile = cProfile.Profile()
+    profile.enable()
+
+    # Appeler les 2 méthodes array_filling_<n>
+    array_filling_1()
+    array_filling_2()
+
+    # Stopper le profilage
+    profile.disable()
+
+    # Utiliser pstats pour trier le profilage suivant la colonne 'ncalls'
+    stats = pstats.Stats(profile).sort_stats("ncalls")
+
+    # Afficher les résultats dans la console.
+    stats.print_stats()
 
 
 # NOTE

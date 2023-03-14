@@ -77,3 +77,15 @@ def test_raises_exception_on_non_string_arguments_lower_case():
         return
 
     assert False
+
+
+def test_raises_exception_on_non_string_arguments_invert():
+    """Tests that capital_case function raises a TypeError when its input is not a string"""
+
+    try:
+        invert(1)
+    except TypeError:
+        assert True
+        return
+
+    assert False
